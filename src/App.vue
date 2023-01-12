@@ -1,26 +1,48 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container">
+    <h1 class="card-panel purple accent-3 center-align">{{ valor }}</h1>
+
+    <div class="center-align">
+      <button v-on:click="contadorSoma()" class="waves-effect waves-light btn">
+        +
+      </button>
+      <button @click="contadorSoma()" class="waves-effect waves-light btn">
+        +
+      </button>
+
+      <button
+        v-on:click="contadorSubtrai()"
+        class="waves-effect waves-light red accent-3 btn"
+      >
+        -
+      </button>
+      <button
+        @click="contadorSubtrai()"
+        class="waves-effect waves-light red accent-3 btn"
+      >
+        -
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      valor: 0,
+    };
+  },
+  methods: {
+    contadorSoma() {
+      this.valor++;
+    },
+    contadorSubtrai() {
+      this.valor--;
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
